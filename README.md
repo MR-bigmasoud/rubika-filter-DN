@@ -16,7 +16,11 @@ pkg install python3
 
 pkg install git
 
-git clone
+git clone https://github.com/MR-bigmasoud/rubika-filter-DN.git
+
+cd rubika-filter-DN
+
+python DN-filterR.py
 
 # فارسی
 
