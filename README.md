@@ -20,7 +20,7 @@ git clone https://github.com/MR-bigmasoud/rubika-filter-DN.git
 
 cd rubika-filter-DN
 
-python DN-filterR.py
+python DN-FilterR.py
 
 # فارسی
 
