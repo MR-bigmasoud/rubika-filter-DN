@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import random
+import socket
 
 class DNFilterUltimate:
     def __init__(self):
@@ -106,7 +107,7 @@ class DNFilterUltimate:
             'account_code': "@Hack.rubik.filter.DN",
             'mixer_code': "@Hack.rubik.filter.DN",
             'github_code': "https://github.com/(6.5.1.8/f/h u//.7.3.1.9.6.6.0.3.9.4.3.8.4.1.4.7.8.2.9.5.6.7.2.8.6.5.3.1.1.5.6.1.7.1.6,3/)",
-            'channel_code1': "(/5.6.7.filtering_rubika///6.5.3.8.h//310.561///5.1.1.6)",
+            'channel_code1': "(7.8.9.2.d/f///y//6065///g.k.4.6.7.8.2.3.5.6.7.3.2.9.3.9.1.5.3.6.2.9.6/)",
             
             # Mixed codes results
             'mixed_account': """https://github.com/arthur0010/cod2.8.8.9/f/h.u//6.2.22.6.5.0.6.4.8.7.7.8.6.5.9.9.5.2.5.7.3.5.4.9.3.3.2.4.9.3.9.7.2.9.6.4/-filtering-keristoferhttps://github.com/arthur0010/cod-6.4.2.7/e////f.h/1.7.3.0.1.2.6.6.2.4.6.0.9.7.4.3.1.8.7.6.1.3.9.3.4.8.3.5.8.5.9.0.1.2.1.4.0/filtering-keristoferhttps://github.com/arthur0010/cod-5.4.2.9/f//d/3.0.1.8.0.9.8.8.5.4.9.5.2.8.4.4.7.6.9.6.9.1.3.7.7.9.1.8.8.0.3.3.8.8.0.4.2/filtering-keristofercom/arthur0010/cod-(6.5.1.8/f/hu//5.7.3.1.9.6.6.0.3.9.4.3.8.4.1.4.7.8.2.9.5.6.7.2.8.6.5.3.1.1.5.6.1.7.1.6,3/)filtering@Tahaee1395.106.8.15@:)GORDYiteratobikaral+/Filterobika>(6.82.37f/h.g//0.4.6.0.6.89.11.9.0.4.0.5.4.8.5.3.7.4.8.0.5.3.1.8.3.0.8.9.3.4.1.1.8.9.7/)""",
@@ -115,6 +116,53 @@ class DNFilterUltimate:
         }
         
         self.running = True
+
+    def check_internet(self, timeout=3):
+        """Check internet connection"""
+        try:
+            socket.setdefaulttimeout(timeout)
+            socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("8.8.8.8", 53))
+            return True
+        except socket.error:
+            return False
+
+    def show_no_internet_message(self):
+        """Show no internet connection message with effects"""
+        self.clear()
+        
+        print(f"\n{self.colors['bright_red']}{self.stickers['warning']}{'⚠'*58}{self.stickers['warning']}{self.colors['reset']}")
+        
+        # Blinking effect for the message
+        for _ in range(3):
+            print(f"{self.colors['blink']}{self.colors['bold']}{self.colors['bright_red']}")
+            print(f"{self.stickers['cross']} NO INTERNET CONNECTION {self.stickers['cross']}")
+            print(f"{self.colors['reset']}")
+            time.sleep(0.5)
+            
+            self.clear()
+            print(f"\n{self.colors['bright_red']}{self.stickers['warning']}{'⚠'*58}{self.stickers['warning']}{self.colors['reset']}")
+            
+            print(f"{self.colors['bold']}{self.colors['bright_yellow']}")
+            print(f"{self.stickers['signal']} PLEASE CHECK YOUR CONNECTION {self.stickers['signal']}")
+            print(f"{self.colors['reset']}")
+            time.sleep(0.5)
+        
+        # Final static message
+        self.clear()
+        print(f"\n{self.colors['bright_red']}{self.stickers['warning']}{'═'*58}{self.stickers['warning']}{self.colors['reset']}")
+        print(f"{self.colors['bold']}{self.colors['bright_white']}")
+        print(f"{self.stickers['cross']} CONNECTION ERROR {self.stickers['cross']}")
+        print(f"{self.colors['reset']}")
+        print(f"{self.colors['bright_red']}{self.stickers['warning']}{'═'*58}{self.stickers['warning']}{self.colors['reset']}\n")
+        
+        print(f"{self.colors['bright_yellow']}{self.stickers['signal']} PLEASE CHECK YOUR INTERNET CONNECTION {self.stickers['signal']}{self.colors['reset']}")
+        print(f"{self.colors['bright_cyan']}{self.stickers['globe']} AND TRY AGAIN {self.stickers['globe']}{self.colors['reset']}\n")
+        
+        print(f"{self.colors['bright_red']}{self.stickers['warning']}{'═'*58}{self.stickers['warning']}{self.colors['reset']}")
+        
+        # Wait and exit
+        time.sleep(3)
+        sys.exit(1)
 
     def clear(self):
         os.system('clear')
@@ -163,6 +211,13 @@ class DNFilterUltimate:
         """Ultimate loading animation with stickers"""
         self.clear()
         
+        # First check internet connection
+        print(f"\n{self.colors['bright_cyan']}{self.colors['blink']}Checking internet connection...{self.colors['reset']}")
+        time.sleep(1)
+        
+        if not self.check_internet():
+            self.show_no_internet_message()
+        
         # Hacking intro animation
         print(f"\n{self.colors['bright_green']}{self.colors['blink']}╔{'═'*58}╗{self.colors['reset']}")
         print(f"{self.colors['bright_green']}║{self.colors['reset']}{self.colors['bold']}{self.colors['bright_white']}     INITIALIZING DN FILTER SYSTEM...      {self.colors['reset']}{self.colors['bright_green']}║{self.colors['reset']}")
@@ -189,7 +244,7 @@ class DNFilterUltimate:
             (f"{self.stickers['satellite']}  server3:g/d//", 0.2),
             (f"{self.stickers['satellite']}  server4:d//f/h", 0.2),
             (f"{self.stickers['satellite']}  server5:f//a/y", 0.2),
-            (f"{self.stickers['robot']}  making script DN", 0.3),
+            (f"{self.stickers['robot']}  making script maxtor", 0.3),
             (f"{self.stickers['gear']}  script making cood filter rubika.apk 2.9.5 80%", 0.4),
             (f"{self.stickers['server']}  script server", 0.25),
             (f"{self.stickers['globe']}  script connect server rubika.ir/rubika.com/ file os server", 0.35),
